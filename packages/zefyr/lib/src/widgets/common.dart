@@ -40,6 +40,7 @@ class _ZefyrLineState extends State<ZefyrLine> {
   @override
   Widget build(BuildContext context) {
     final scope = ZefyrScope.of(context);
+    final zefyrTheme = ZefyrTheme.of(context);
     if (scope.isEditable) {
       ensureVisible(context, scope);
     }
@@ -60,11 +61,15 @@ class _ZefyrLineState extends State<ZefyrLine> {
       Color cursorColor;
       switch (theme.platform) {
         case TargetPlatform.iOS:
+          cursorColor = zefyrTheme.cursorColor;
+          break;
         case TargetPlatform.macOS:
           cursorColor ??= CupertinoTheme.of(context).primaryColor;
           break;
 
         case TargetPlatform.android:
+          cursorColor = zefyrTheme.cursorColor;
+          break;
         case TargetPlatform.fuchsia:
         case TargetPlatform.windows:
         case TargetPlatform.linux:
