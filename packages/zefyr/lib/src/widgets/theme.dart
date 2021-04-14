@@ -61,12 +61,15 @@ class ZefyrThemeData {
   /// The colors used to render editor toolbar.
   final ToolbarTheme toolbarTheme;
 
+  final Color cursorColor;
+
   /// Creates a [ZefyrThemeData] given a set of exact values.
   const ZefyrThemeData({
     this.defaultLineTheme,
     this.attributeTheme,
     this.indentWidth,
     this.toolbarTheme,
+    this.cursorColor,
   });
 
   /// The default editor theme.
@@ -84,6 +87,7 @@ class ZefyrThemeData {
       attributeTheme: AttributeTheme.fallback(context, defaultLineTheme),
       indentWidth: 16.0,
       toolbarTheme: ToolbarTheme.fallback(context),
+      cursorColor: Colors.blue
     );
   }
 
@@ -94,12 +98,14 @@ class ZefyrThemeData {
     AttributeTheme attributeTheme,
     double indentWidth,
     ToolbarTheme toolbarTheme,
+    Color cursorColor,
   }) {
     return ZefyrThemeData(
       defaultLineTheme: defaultLineTheme ?? this.defaultLineTheme,
       attributeTheme: attributeTheme ?? this.attributeTheme,
       indentWidth: indentWidth ?? this.indentWidth,
       toolbarTheme: toolbarTheme ?? this.toolbarTheme,
+        cursorColor: cursorColor ?? this.cursorColor
     );
   }
 
@@ -115,6 +121,8 @@ class ZefyrThemeData {
       indentWidth: other.indentWidth ?? indentWidth,
       toolbarTheme:
           toolbarTheme?.merge(other.toolbarTheme) ?? other.toolbarTheme,
+      cursorColor:
+          cursorColor?.merge(other.cursorColor) ?? other.cursorColor,
     );
   }
 
@@ -125,7 +133,9 @@ class ZefyrThemeData {
     return (otherData.defaultLineTheme == defaultLineTheme) &&
         (otherData.attributeTheme == attributeTheme) &&
         (otherData.indentWidth == indentWidth) &&
-        (otherData.toolbarTheme == toolbarTheme);
+        (otherData.toolbarTheme == toolbarTheme)
+        (otherData.cursorColor == cursorColor)
+    ;
   }
 
   @override
@@ -135,6 +145,7 @@ class ZefyrThemeData {
       attributeTheme,
       indentWidth,
       toolbarTheme,
+      cursorColor
     ]);
   }
 }
