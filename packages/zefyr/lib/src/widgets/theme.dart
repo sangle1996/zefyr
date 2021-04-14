@@ -122,7 +122,7 @@ class ZefyrThemeData {
       toolbarTheme:
           toolbarTheme?.merge(other.toolbarTheme) ?? other.toolbarTheme,
       cursorColor:
-          cursorColor?.merge(other.cursorColor) ?? other.cursorColor,
+        other.cursorColor ?? other.cursorColor,
     );
   }
 
@@ -133,7 +133,7 @@ class ZefyrThemeData {
     return (otherData.defaultLineTheme == defaultLineTheme) &&
         (otherData.attributeTheme == attributeTheme) &&
         (otherData.indentWidth == indentWidth) &&
-        (otherData.toolbarTheme == toolbarTheme)
+        (otherData.toolbarTheme == toolbarTheme) &&
         (otherData.cursorColor == cursorColor)
     ;
   }
