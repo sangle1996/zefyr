@@ -85,9 +85,9 @@ class ZefyrThemeData {
     return ZefyrThemeData(
       defaultLineTheme: defaultLineTheme,
       attributeTheme: AttributeTheme.fallback(context, defaultLineTheme),
-      indentWidth: 16.0,
+      indentWidth: 56.0,
       toolbarTheme: ToolbarTheme.fallback(context),
-      cursorColor: Colors.blue
+      cursorColor: Colors.red,
     );
   }
 
